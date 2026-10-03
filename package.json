@@ -1,0 +1,19 @@
+{
+  "name": "@necto-plugin/com.example.necto-flag-toggle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite",
+    "test": "npm run typecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@necto/bridge": "https://github.com/toss/necto/releases/download/0.2.0/necto-bridge-0.2.0.tgz"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^6.0.0"
+  }
+}

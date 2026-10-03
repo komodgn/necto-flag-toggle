@@ -1,0 +1,15 @@
+{
+  "originHash" : "78af88bdc4d41c0c75d8ed339404f8e425c912967854ec3449b7e07e17302f2e",
+  "pins" : [
+    {
+      "identity" : "necto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/toss/necto.git",
+      "state" : {
+        "revision" : "b5227f798b525c4e26949ce80bda638901e948b9",
+        "version" : "0.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
