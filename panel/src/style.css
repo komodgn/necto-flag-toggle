@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Viva Republica, Inc.
+ * Flag Toggle panel styles. Layout only — colors/spacing come from the necto theme.
  */
 
 @import "@necto/bridge/theme.css";
@@ -9,6 +9,20 @@
   padding: var(--necto-space-3);
 }
 
-#message {
+.necto-row {
+  margin-top: var(--necto-space-2);
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: var(--necto-space-2);
+}
+
+.necto-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--necto-space-1);
   margin-top: var(--necto-space-3);
+}
+
+#note {
+  margin-top: var(--necto-space-2);
 }

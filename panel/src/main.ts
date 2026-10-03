@@ -1,35 +1,76 @@
 //
-// Copyright (c) 2026 Viva Republica, Inc.
+// Flag Toggle panel.
+//
+// Display strings (title/onLabel/offLabel/note) come from the app-injected config (flag.config).
+// Value changes go through the flag.get/toggle/enable/disable/reset device bridges.
 //
 
 import { isNectoBridgeError, necto } from "@necto/bridge";
 import { t } from "./localization";
 
-interface Message {
-  message: string;
+interface FlagState {
+  on: boolean;
 }
+
+interface FlagConfig {
+  title: string;
+  onLabel: string;
+  offLabel: string;
+  note: string;
+}
+
+const config: FlagConfig = { title: "Flag Toggle", onLabel: "ON", offLabel: "OFF", note: "" };
+
+const el = (id: string) => document.getElementById(id);
 
 for (const element of document.querySelectorAll<HTMLElement>("[data-i18n]")) {
   element.textContent = t(element.dataset.i18n ?? "");
 }
 
-document.getElementById("refresh")?.addEventListener("click", () => void refresh());
+function renderState(state: FlagState): void {
+  const target = el("state");
+  if (!target) return;
+  target.textContent = state.on ? config.onLabel : config.offLabel;
+  target.style.color = state.on ? "var(--necto-danger)" : "var(--necto-info)";
+}
 
-async function refresh(): Promise<void> {
-  const message = document.getElementById("message");
-  if (!message) return;
+function applyConfig(next: FlagConfig): void {
+  Object.assign(config, next);
+  const title = el("title");
+  if (title) title.textContent = config.title;
+  const note = el("note");
+  if (note) note.textContent = config.note;
+  const enable = el("enable");
+  if (enable) enable.textContent = config.onLabel;
+  const disable = el("disable");
+  if (disable) disable.textContent = config.offLabel;
+}
 
+async function call(op: string): Promise<void> {
+  const target = el("state");
   try {
-    const result = await necto.device.send<Message & Record<string, never>>("message.get");
-    message.textContent = result.message;
+    const state = await necto.device.send<FlagState & Record<string, never>>(op);
+    renderState(state);
   } catch (error) {
-    message.textContent = isNectoBridgeError(error) ? `${error.code}: ${error.message}` : String(error);
+    if (target) {
+      target.textContent = isNectoBridgeError(error) ? `${error.code}: ${error.message}` : String(error);
+    }
   }
 }
 
+el("toggle")?.addEventListener("click", () => void call("flag.toggle"));
+el("enable")?.addEventListener("click", () => void call("flag.enable"));
+el("disable")?.addEventListener("click", () => void call("flag.disable"));
+el("refresh")?.addEventListener("click", () => void call("flag.get"));
+
 async function main(): Promise<void> {
   if (!necto.isAvailable()) return;
-  await refresh();
+  try {
+    applyConfig(await necto.device.send<FlagConfig & Record<string, never>>("flag.config"));
+  } catch {
+    // keep defaults if config is unavailable
+  }
+  await call("flag.get");
   await necto.ready();
 }
 
