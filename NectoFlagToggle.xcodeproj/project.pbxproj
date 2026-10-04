@@ -167,6 +167,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y8FFA5RL3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Necto Flag Toggle Example";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -174,7 +175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.nectoflagtoggle.example;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.komodgn.necto-flag-toggle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -186,6 +187,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y8FFA5RL3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Necto Flag Toggle Example";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -193,7 +195,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.nectoflagtoggle.example;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.komodgn.necto-flag-toggle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

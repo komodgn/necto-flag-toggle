@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "com.example.necto-flag-toggle",
+  "id": "io.github.komodgn.necto-flag-toggle",
   "name": "Flag Toggle",
   "description": "Remotely toggle an app's boolean flag from the necto sidebar",
   "version": "0.1.0",

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "com.example.necto-flag-toggle",
+  "id": "io.github.komodgn.necto-flag-toggle",
   "name": "Flag Toggle",
   "description": "Remotely toggle an app's boolean flag from the necto sidebar",
   "version": "0.1.0",
-  "author": "Your Name",
+  "author": "komodgn",
   "icon": { "systemName": "arrow.left.arrow.right" },
   "assets": ["index.html", "assets"],
   "allowedOrigins": ["self"],

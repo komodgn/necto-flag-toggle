@@ -1,5 +1,5 @@
 {
-  "name": "@necto-plugin/com.example.necto-flag-toggle",
+  "name": "@necto-plugin/io.github.komodgn.necto-flag-toggle",
   "version": "0.1.0",
   "private": true,
   "type": "module",

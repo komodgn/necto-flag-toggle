@@ -18,7 +18,7 @@ import NectoSDK
 import NectoModel 
 
 public struct NectoFlagTogglePlugin: NectoPlugin {
-    public let id = "com.example.necto-flag-toggle"
+    public let id = "io.github.komodgn.necto-flag-toggle"
 
     public struct Config: Sendable {
         public let title: String
@@ -75,12 +75,11 @@ public struct NectoFlagTogglePlugin: NectoPlugin {
         
         let state: @Sendable () -> NectoJSONValue = { .object(["on": .bool(read())]) }
 
-                necto.handle("flag.get", outputSchema: stateSchema) { _ in state() }
-                necto.handle("flag.toggle", outputSchema: stateSchema) { _ in write(!read()); return state() }
-                necto.handle("flag.enable", outputSchema: stateSchema) { _ in write(true); return state() }
-                necto.handle("flag.disable", outputSchema: stateSchema) { _ in write(false); return state() }
-                necto.handle("flag.reset", outputSchema: stateSchema) { _ in write(nil); return state() }
-        
+        necto.handle("flag.get", outputSchema: stateSchema) { _ in state() }
+        necto.handle("flag.toggle", outputSchema: stateSchema) { _ in write(!read()); return state() }
+        necto.handle("flag.enable", outputSchema: stateSchema) { _ in write(true); return state() }
+        necto.handle("flag.disable", outputSchema: stateSchema) { _ in write(false); return state() }
+        necto.handle("flag.reset", outputSchema: stateSchema) { _ in write(nil); return state() }
         necto.handle(
             "flag.config",
             outputSchema: .object([
