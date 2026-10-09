@@ -3,28 +3,40 @@
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
-    <title>Flag Toggle</title>
+    <title>Flag Toggle</title>
     <script type="module" crossorigin src="./assets/index.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index.css">
   </head>
   <body>
     <main class="necto-app">
       <div class="necto-body">
-        <h1 class="necto-section-title" id="title">Flag Toggle</h1>
+        <h2 class="necto-section-title" id="title">Flag Toggle</h2>
 
-        <div class="necto-section">
-            <span class="necto-row-label" data-i18n="Current" style="display: block; margin-bottom: 4px; color: var(--necto-text-muted);">Current</span>
-            <span class="necto-row-value" id="state" data-i18n="Waiting…" style="display: block; font-weight: 600;">Waiting…</span>
+        <div class="necto-row">
+          <span class="necto-row-label" data-i18n="Enabled">Enabled</span>
+          <button
+            class="necto-switch"
+            id="toggle"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            aria-labelledby="title"
+          ></button>
         </div>
 
-        <div class="necto-actions">
-          <button class="necto-button necto-button-primary" id="toggle" type="button" data-i18n="Toggle">Toggle</button>
+        <div class="necto-row">
+          <span class="necto-row-label" data-i18n="Current">Current</span>
+          <span class="necto-status necto-status-idle necto-row-value" id="state" data-i18n="Waiting…">Waiting…</span>
+        </div>
+
+        <div class="necto-toolbar-group">
           <button class="necto-button" id="enable" type="button">ON</button>
           <button class="necto-button" id="disable" type="button">OFF</button>
+          <button class="necto-button necto-button-quiet" id="refresh" type="button" data-i18n="Refresh">Refresh</button>
         </div>
 
         <p class="necto-caption" id="note"></p>
       </div>
-    </main>
+    </main>
   </body>
 </html>

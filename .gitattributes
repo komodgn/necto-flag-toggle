@@ -1,2 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize line endings to LF on checkout and in the repo.
+# A debugging plugin ships shell scripts and web assets that break under CRLF.
+* text=auto eol=lf
+
+# Binary assets Git must never touch.
+*.png binary
+*.jpg binary
+*.pdf binary
