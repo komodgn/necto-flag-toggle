@@ -6,6 +6,7 @@ import { necto } from "@necto/bridge";
 
 export const t = necto.createTranslator({
   ko: {
+    "Enabled": "활성화",
     "Current": "현재",
     "Toggle": "토글",
     "Refresh": "새로고침",

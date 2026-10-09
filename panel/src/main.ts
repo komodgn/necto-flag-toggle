@@ -28,10 +28,14 @@ for (const element of document.querySelectorAll<HTMLElement>("[data-i18n]")) {
 }
 
 function renderState(state: FlagState): void {
+  const toggle = el("toggle");
+  if (toggle) toggle.setAttribute("aria-checked", String(state.on));
+
   const target = el("state");
   if (!target) return;
   target.textContent = state.on ? config.onLabel : config.offLabel;
-  target.style.color = state.on ? "var(--necto-danger)" : "var(--necto-info)";
+  // Shape carries the state alongside the hue: a filled mark when on, a ring when off.
+  target.className = `necto-status necto-row-value ${state.on ? "necto-status-ok" : "necto-status-idle"}`;
 }
 
 function applyConfig(next: FlagConfig): void {
@@ -53,6 +57,7 @@ async function call(op: string): Promise<void> {
     renderState(state);
   } catch (error) {
     if (target) {
+      target.className = "necto-status necto-row-value necto-status-danger";
       target.textContent = isNectoBridgeError(error) ? `${error.code}: ${error.message}` : String(error);
     }
   }
