@@ -4,8 +4,7 @@ A generic [necto](https://github.com/toss/necto) plugin to **remotely toggle an 
 
 Useful for anything you want to flip on/off during development — A/B flow switching, feature flags, forcing dark mode, etc. Display strings and value read/write are injected, so it is not tied to any specific app.
 
-<!-- TODO: add screenshot -->
-<img width="1001" height="828" alt="스크린샷 2026-10-04 오후 3 43 21" src="https://github.com/user-attachments/assets/a15442a7-5d4e-4102-8251-a669eae2cfa8" />
+<img width="886" height="469" alt="image" src="https://github.com/user-attachments/assets/c4b5d31f-b8e3-465a-9db1-55bb6aa3a1ec" />
 
 ## What's inside
 
